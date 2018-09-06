@@ -1,7 +1,7 @@
 /** Global variables, should be initialized to users input */
 let grid;
 let cols = 10;
-let rows = 10;
+let rows = 20;
 let width = 40;
 
 var totalBees = 30;
