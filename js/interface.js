@@ -5,23 +5,14 @@ let cols;
 let rows;
 let mines;
 let width = 20;
-let start = false;
 
 var totalBees = 30;
 
-/** Gets user input for rows, columns, and # of mines */
-
-function getInput(){
-
-  rows = document.getElementById("input1").value;
-  cols = document.getElementById("input2").value;
-  mines = document.getElementById("input3").value;
-  // start = true;
-}
-
 /** Creates a canvas with a 2D array according to the input*/
 function setup() {
-    if(start){
+    rows = document.getElementById("input1").value;
+    cols = document.getElementById("input2").value;
+    mines = document.getElementById("input3").value;
     createCanvas(cols*width +1, rows*width +1);
     grid = create2DArray(cols, rows);
     for (let c = 0; c < cols; c++) {
@@ -29,7 +20,6 @@ function setup() {
         grid[c][r] = new Box(c*width, r*width, width);
       }
     }
-  }
 }
 
 function create2DArray(cols,rows){
