@@ -1,20 +1,46 @@
 /** Global variables, should be initialized to users input */
-let grid;
-let cols = 10;
-let rows = 20;
-let width = 40;
 
-var totalBees = 30;
+let grid;
+let cols=0;
+let rows=0;
+let mines=0;
+let width = 30;
+let start = false;
+let noInput = true;
 
 /** Creates a canvas with a 2D array according to the input*/
+
+
 function setup() {
-  createCanvas(cols*width +1, rows*width +1);
-  grid = create2DArray(cols, rows);
-  for (var c = 0; c < cols; c++) {
-    for (var r = 0; r < rows; r++) {
-      grid[c][r] = new Box(c*width, r*width, width);
+
+    /** Gets the dimensions from the user */
+    rows = document.getElementById("input1").value;
+    cols = document.getElementById("input2").value;
+    mines = document.getElementById("input3").value;
+
+    if(rows<2){
+        rows=2;
     }
-  }
+    if(cols<2){
+        cols=2;
+    }
+    if(mines<=0){
+        mines=1;
+    }
+    if(mines>=rows*cols){
+        mines=rows*cols-1;
+    }
+    noInput=false;
+
+
+    createCanvas(cols*width +1, rows*width +1);
+    grid = create2DArray(cols, rows);
+    for (let c = 0; c < cols; c++) {
+      for (let r = 0; r < rows; r++) {
+        grid[c][r] = new Box(c*width, r*width, width);
+      }
+    }
+
 }
 
 function create2DArray(cols,rows){
@@ -28,8 +54,8 @@ function create2DArray(cols,rows){
 
 /** Draws the canvas on the site */
 function draw() {
-  for (var c = 0; c < cols; c++) {
-    for (var r = 0; r < rows; r++) {
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++) {
       grid[c][r].show();
     }
   }
