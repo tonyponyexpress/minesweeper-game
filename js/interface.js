@@ -1,10 +1,22 @@
 /** Global variables, should be initialized to users input */
+
 let grid;
-let cols = 10;
-let rows = 20;
-let width = 40;
+let cols = 0;
+let rows = 0;
+let width = 20;
+let mines = 0;
+
+getInput();
 
 var totalBees = 30;
+
+/** Gets user input for rows, columns, and # of mines */
+
+function getInput(){
+  cols = parseInt(document.getElementById('input2').value);
+  rows = parseInt(document.getElementById('input1').value);
+  mines = parseInt(document.getElementById('input3').value);
+}
 
 /** Creates a canvas with a 2D array according to the input*/
 function setup() {
