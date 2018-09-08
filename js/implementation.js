@@ -41,9 +41,9 @@ function mine_population(number, rows, cols, multi_array){
 }
 
 function generate_playing_field(){
-	let rows = 10 //document.getElementById("input1").value;
-	let cols = 10 //document.getElementById("input2").value;
-	let number_of_mines = 10 //document.getElementById("input3").value;
+	let rows = document.getElementById("input1").value;
+	let cols = document.getElementById("input2").value;
+	let number_of_mines = document.getElementById("input3").value;
 	let multi_array = new array(rows);
 	for(let i = 0; i < rows; i++){
 		multi_array[i] = new array(cols);
