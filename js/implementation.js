@@ -1,3 +1,4 @@
+
 /**this takes an x value, an array, and the current number of elements in that array.
 It checks (for the number of elements currently in the array) whether or not the value
 is already in the array. If it is then it returns false, if it is not it returns true.*/
@@ -10,6 +11,7 @@ function unique_func(value, arr, currentLength){
 	}
 	return unique;
 }
+
 /**this first creates an array of unique random numbers less than the floor of rows*cols
 when isFull=true the array of mine locations is full, its time to put them in!
 The triple nested for-loop places all the mines in place. We chose to use a "9"
@@ -32,19 +34,9 @@ function mine_population(number, rows, cols, multi_array){
 		}
 	}
 	for(let i=0; i<number; i++){ /**for the number of mines they would like to place*/
-		let counter = 0; /**this is how many spaces you have "jumped" through the array*/
-		for(let x=0; x<rows; x++){ /**nested loop for rows*/
-			for(let y=0; y<cols; y++){ /**nested loop for columns*/
-				if (counter == mine_locations[i]){ /**if you jump the number of times specified in that location of mine_locations*/
-					multi_array[x][y] = 9; /**set that location equal to 9*/
-				}
-				counter++;
-			}
-		}
-	}
-function is_within_bounds(row, col, rows, cols){
-	if((row >= 0) && (col >= 0) && (row < rows) && (col < cols)){
-		return true;
+		let y = mine_locations[i] % (cols);
+		let x = (mine_locations[i] - y) / (cols);
+		multi_array[y][x].mine=true;
 	}
 }
 

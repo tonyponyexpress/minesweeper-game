@@ -1,12 +1,13 @@
-/** Global variables, should be initialized to users input */
+/** ------------Global variables ------------ */
 
 let grid;
 let cols=0;
 let rows=0;
 let mines=0;
 let width = 30;
+let arrMines;
 
-
+/** ------------ P5 interface ------------ */
 /** Creates a canvas with a 2D array according to the input*/
 function setup() {
 
@@ -29,6 +30,8 @@ function setup() {
     }
 
     createCanvas(cols*width +1, rows*width +1);
+
+    /** Creates a 2D Array with the cols and rows given*/
     grid = create2DArray(cols, rows);
     for (let c = 0; c < cols; c++) {
       for (let r = 0; r < rows; r++) {
@@ -36,15 +39,8 @@ function setup() {
       }
     }
 
-}
-
-/** Creates a 2D Array */
-function create2DArray(cols,rows){
-  let grid = new Array(cols);
-  for (let c=0; c<cols; c++){
-    grid[c] = new Array(rows);
-  }
-  return grid;
+    /** Populates the grid with the amount of mines given */
+    mine_population(mines, rows, cols, grid);
 }
 
 
@@ -56,6 +52,18 @@ function draw() {
     }
   }
 }
+
+/** ------------ HELPER FUNCTIONS ------------ */
+
+/** Creates a 2D Array */
+function create2DArray(cols,rows){
+  let grid = new Array(cols);
+  for (let c=0; c<cols; c++){
+    grid[c] = new Array(rows);
+  }
+  return grid;
+}
+
 
 /** Test function to change the box if it is clicked */
 function mouseClicked(){
