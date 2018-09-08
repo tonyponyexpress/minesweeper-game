@@ -40,6 +40,15 @@ function mine_population(number, rows, cols, multi_array){
 	}
 }
 
+function is_within_bounds(row, col, rows, cols){
+	if((row >= 0) && (col >= 0) && (row < rows) && (col < cols)){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 function generate_playing_field(){
 	let rows = document.getElementById("input1").value;
 	let cols = document.getElementById("input2").value;
