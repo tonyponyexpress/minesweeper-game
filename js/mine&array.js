@@ -32,15 +32,9 @@ function mine_population(number, rows, cols, multi_array){
 		}
 	}
 	for(let i=0; i<number; i++){ /**for the number of mines they would like to place*/
-		let counter = 0; /**this is how many spaces you have "jumped" through the array*/
-		for(let x=0; x<rows; x++){ /**nested loop for rows*/
-			for(let y=0; y<cols; y++){ /**nested loop for columns*/
-				if (counter == mine_locations[i]){ /**if you jump the number of times specified in that location of mine_locations*/
-					multi_array[x][y] = 9; /**set that location equal to 9*/
-				}
-				counter++;
-			}
-		}
+		let y = mine_locations[i] % (cols + 1);
+		let x = (mine_locations[i] - y) / (cols + 1);
+		multi_array[x][y] = 9; /**set that location equal to 9*/
 	}
 	/**for(let x=0; x<rows; x++){ this is a test function to make sure population works
 		for(let y=0; y<cols; y++){
