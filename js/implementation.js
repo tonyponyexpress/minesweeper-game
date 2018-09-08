@@ -1,3 +1,4 @@
+
 /**this takes an x value, an array, and the current number of elements in that array.
 It checks (for the number of elements currently in the array) whether or not the value
 is already in the array. If it is then it returns false, if it is not it returns true.*/
@@ -10,6 +11,7 @@ function unique_func(value, arr, currentLength){
 	}
 	return unique;
 }
+
 /**this first creates an array of unique random numbers less than the floor of rows*cols
 when isFull=true the array of mine locations is full, its time to put them in!
 The triple nested for-loop places all the mines in place. We chose to use a "9"
@@ -34,17 +36,6 @@ function mine_population(number, rows, cols, multi_array){
 	for(let i=0; i<number; i++){ /**for the number of mines they would like to place*/
 		let y = mine_locations[i] % (cols);
 		let x = (mine_locations[i] - y) / (cols);
-		multi_array[x][y] = 9; /**set that location equal to 9*/
+		multi_array[y][x].mine=true;
 	}
-	/**for(let x=0; x<rows; x++){ this is a test function to make sure population works
-		for(let y=0; y<cols; y++){
-			if(multi_array[x][y]==9){
-				console.log("M");
-			}
-			else {
-				console.log("0");
-			}
-		}
-	}
-	*/
 }
