@@ -32,8 +32,8 @@ function mine_population(number, rows, cols, multi_array){
 		}
 	}
 	for(let i=0; i<number; i++){ /**for the number of mines they would like to place*/
-		let y = mine_locations[i] % (cols + 1);
-		let x = (mine_locations[i] - y) / (rows + 1);
+		let y = mine_locations[i] % (cols);
+		let x = (mine_locations[i] - y) / (rows);
 		multi_array[x][y] = 9; /**set that location equal to 9*/
 	}
 	/**for(let x=0; x<rows; x++){ this is a test function to make sure population works
