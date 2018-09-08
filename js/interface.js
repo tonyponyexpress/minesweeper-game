@@ -5,12 +5,9 @@ let cols=0;
 let rows=0;
 let mines=0;
 let width = 30;
-let start = false;
-let noInput = true;
+
 
 /** Creates a canvas with a 2D array according to the input*/
-
-
 function setup() {
 
     /** Gets the dimensions from the user */
@@ -30,8 +27,6 @@ function setup() {
     if(mines>=rows*cols){
         mines=rows*cols-1;
     }
-    noInput=false;
-
 
     createCanvas(cols*width +1, rows*width +1);
     grid = create2DArray(cols, rows);
@@ -43,6 +38,7 @@ function setup() {
 
 }
 
+/** Creates a 2D Array */
 function create2DArray(cols,rows){
   let grid = new Array(cols);
   for (let c=0; c<cols; c++){
@@ -59,4 +55,14 @@ function draw() {
       grid[c][r].show();
     }
   }
+}
+
+/** Test function to change the box if it is clicked */
+function mouseClicked(){
+    let x;
+    let y;
+    x = floor(mouseX/width);
+    y = floor(mouseY/width);
+    grid[x][y].clicked=true;
+    //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
 }
