@@ -5,23 +5,23 @@ let cols=0;
 let rows=0;
 let mines=0;
 let width = 30;
-let arrMines;
 
 /** ------------ P5 interface ------------ */
 /** Creates a canvas with a 2D array according to the input*/
 function setup() {
+    let r=0;
+    let c=0;
 
     /** Gets the dimensions from the user */
     rows = document.getElementById("input1").value;
     cols = document.getElementById("input2").value;
     mines = document.getElementById("input3").value;
 
-    if(rows<2){
+    if (rows<2 && cols<2){
         rows=2;
-    }
-    if(cols<2){
         cols=2;
     }
+
     if(mines<=0){
         mines=1;
     }
@@ -41,6 +41,8 @@ function setup() {
 
     /** Populates the grid with the amount of mines given */
     mine_population(mines, rows, cols, grid);
+
+
 }
 
 
