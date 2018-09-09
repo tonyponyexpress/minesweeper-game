@@ -43,6 +43,8 @@ function setup() {
     mine_population(mines, rows, cols, grid);
 
 
+    /** Populates the count of the grid */
+    generate_playing_field(mines, rows, cols, grid);
 }
 
 
