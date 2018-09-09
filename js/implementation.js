@@ -61,25 +61,6 @@ function is_within_bounds(a, b, cols, rows){
 
 
 function generate_playing_field(number_of_mines, rows, cols, multi_array){
-
-	// for(let i = 0; i < rows; i++){
-	// 	for(let j = 0; j < cols; j++){
-	// 		let count = 0;
-	// 		if(multi_array[i][j].mine != true){
-	// 			for(let a = -1; a <= 1; a++){
-	// 				for(let b = -1; b <= 1; b++){
-	// 					if(is_within_bounds(a, b, rows, cols)){
-	// 						if(multi_array[a][b].mine == true){
-	// 							count = count +1;
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 		multi_array[i][j].count = count;
-	// 	}
-	// }
-
 	for (let c = 0; c < cols; c++) {
 	  for (let r = 0; r < rows; r++) {
 			let count=0;
