@@ -50,7 +50,7 @@ function mine_population(number, rows, cols, multi_array){
 // }
 
 function is_within_bounds(a, b, cols, rows){
-	if((a >= 0) && (b >= 0) && (a < rows) && (b < cols)){
+	if((a >= 0) && (b >= 0) && (a < cols) && (b < rows)){
 		return true;
 	}
 	else{
@@ -86,8 +86,10 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 			if(multi_array[c][r].mine != true){
 				for(let a = -1; a <= 1; a++){
 					for(let b = -1; b <= 1; b++){
-						if(is_within_bounds(a,b,cols,rows)){
-							if(multi_array[a][b].mine == true){
+						let column_test = c + a;
+						let row_test = r + b;
+						if(is_within_bounds((column_test),(row_test),cols,rows)){
+							if(multi_array[c+a][r+b].mine == true){
 								count = count +1;
 							}
 						}
