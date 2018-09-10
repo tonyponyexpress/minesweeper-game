@@ -99,3 +99,21 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 		}
 	}
 }
+
+function win(rows, cols, multi_array, flags){
+	let count = 0;
+	for(let i = 0; i < rows; i++){
+		for(let j = 0; j < cols; j++){
+			if(multi_array[i][j].flagged == true && multi_array[i][j].mine == true){
+				count += 1;
+			}
+		}
+	}
+
+	if(count == flags){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
