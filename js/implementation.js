@@ -117,3 +117,7 @@ function win(rows, cols, multi_array, flags){
 		return false;
 	}
 }
+function lose(){
+	window.alert("you lose!");
+	location = location;
+}
