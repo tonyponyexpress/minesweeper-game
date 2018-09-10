@@ -81,6 +81,7 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 
 /** Reveals boxes around grid [y,x] that are count=0, and recursive call to reveal the spaces spaces */
 function reveal_spaces(y, x, cols, rows, multi_array){
+	/** Nested for loop to access the boxes around grid[y][x] */
 	for(let a = y-1; a <= y+1; a++){
 		for(let b = x-1; b <= x+1; b++){
 			if(is_within_bounds(a,b,cols,rows)){

@@ -99,8 +99,8 @@ function mouseClicked(){
     x = floor(mouseX/width);
     y = floor(mouseY/width);
     grid[x][y].clicked=true;
-    /** Generates spaces if person clicks on box with count=0 */
-    if (grid[x][y].count==0){
+    /** Generates spaces if person clicks on box with count=0 and not a mine*/
+    if (grid[x][y].count==0 && grid[x][y].mine==false){
         reveal_spaces(x,y,cols,rows,grid);
     }
 
