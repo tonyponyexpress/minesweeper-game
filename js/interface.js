@@ -30,7 +30,6 @@ function setup() {
         mines=rows*cols-1;
     }
     flags = mines;
-
     createCanvas(cols*width +1, rows*width +1);
 
     /** Creates a 2D Array with the cols and rows given*/
@@ -90,6 +89,10 @@ function keyReleased(){
                         }
                 }
         }
+        if(win(rows, cols, grid, mines)){
+            window.alert("you won!");
+            location = location;
+        }
 }
 
 /** Test function to change the box if it is clicked */
@@ -103,5 +106,9 @@ function mouseClicked(){
     if (grid[x][y].count==0 && grid[x][y].mine==false){
         reveal_spaces(x,y,cols,rows,grid);
     }
-
+    if(win(rows, cols, grid, mines)){
+      //console.log("it entered this");
+      window.alert("you won!");
+      location = location;
+    }
 }
