@@ -10,6 +10,7 @@ function Box(x,y,width)
     this.w = width;
     this.mine = false;
     this.clicked = false;
+    this.reveal = false;
 }
 
 Box.prototype.show = function() {

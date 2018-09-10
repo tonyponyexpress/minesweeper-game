@@ -49,6 +49,9 @@ function is_within_bounds(row, col, rows, cols){
 	}
 }
 
+
+/** Adds adjacent numbers to the playing grid */
+
 function generate_playing_field(){
 	let rows = document.getElementById("input1").value;
 	let cols = document.getElementById("input2").value;
@@ -57,7 +60,7 @@ function generate_playing_field(){
 	for(let i = 0; i < rows; i++){
 		multi_array[i] = new array(cols);
 	}
-	mine_population(number_of_mines, rows, cols, multi_array)
+	mine_population(number_of_mines, rows, cols, multi_array);
 	for(let i = 0; i < rows; i++){
 		for(let j = 0; j < cols; j++){
 			let count = 0;
@@ -77,7 +80,31 @@ function generate_playing_field(){
 	}
 	for(let i = 0; i < rows; i++){
 		for(let j = 0; j < cols; j++){
-			console.log(multi_array[i][j])
+			console.log(multi_array[i][j]);
 		}
 	}
+}
+
+/** Reveals all orthognally adjacent spaces that are also not mines until the edge of the board is hit or a space that is adjacent to a mine */
+function revealSpaces(){
+	let rows = document.getElementById("input1").value;
+	let cols = document.getElementById("input2").value;
+	let mine_num = document.getElementById("input3").value;
+	let multi_array = new array(rows);
+	for(let i = 0; i < rows; i++){
+		multi_array[i] = new array(cols);
+	}
+	mine_population(mine_num, rows, cols, multi_array);
+	generate_playing_field();
+	for (let i = 0; i < rows; i++){
+		for (let j = 0; j < cols; j++){
+			let spot = 0;
+			if (multi_array[i][j].mine == false && multi_array[i][j].count == false){
+				spot+=1;
+			}
+
+		}
+	}
+
+
 }
