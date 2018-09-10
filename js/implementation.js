@@ -40,15 +40,6 @@ function mine_population(number, rows, cols, multi_array){
 	}
 }
 
-// function is_within_bounds(a, b, rows, cols){
-// 	if((a >= 0) && (b >= 0) && (a < rows) && (b < cols)){
-// 		return true;
-// 	}
-// 	else{
-// 		return false;
-// 	}
-// }
-
 function is_within_bounds(a, b, cols, rows){
 	if((a >= 0) && (b >= 0) && (a < cols) && (b < rows)){
 		return true;
@@ -57,7 +48,6 @@ function is_within_bounds(a, b, cols, rows){
 		return false;
 	}
 }
-
 
 /** Adds adjacent numbers to the playing grid */
 
@@ -90,12 +80,23 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 	}
 }
 
-/** Reveals all orthognally adjacent spaces that are also not mines until the edge of the board is hit or a space that is adjacent to a mine */
-function revealSpace(y, x, rows, cols, multi_array){
-	for (let a = y-1; a <= y+1; a++){
-		for (let b = x-1; b <= x+1; b++){
-						if
-
+/** Reveals boxes around grid [y,x] that are count=0, and recursive call to reveal the spaces spaces */
+function reveal_spaces(y, x, cols, rows, multi_array){
+	for(let a = y-1; a <= y+1; a++){
+		for(let b = x-1; b <= x+1; b++){
+			if(is_within_bounds(a,b,cols,rows)){
+				/** click the boxes that have count=0, haven't been cliked and are not a mine */
+				if(multi_array[a][b].count == 0 && grid[a][b].clicked==false && multi_array[a][b].mine == false){
+					multi_array[a][b].clicked = true;
+					/** recursive call to reveal spaces of the new count=0 box */
+					reveal_spaces(a,b,cols,rows,multi_array);
+				}
+				/** reach a number boundarie, if it is not a bomb click the box */
+				else if (multi_array[a][b].mine==false && multi_array[a][b].count>0){
+					multi_array[a][b].clicked = true;
 				}
 			}
+		}
+	}
+
 }
