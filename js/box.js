@@ -11,12 +11,12 @@ function Box(x,y,width)
     this.mine = false;
     this.clicked = false;
     this.count = 0;
+    this.flagged = false;
 }
-
 Box.prototype.show = function() {
     fill(250, 250, 250  );
     rect(this.x, this.y, this.w, this.w);
-    if (this.clicked){
+    if (this.clicked && this.flagged==false){
         if(this.mine==true){
             // red
             fill(179, 0, 0);
@@ -77,6 +77,11 @@ Box.prototype.show = function() {
             ellipseMode(CORNER);
             ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
         }
+    }
+    else if (this.flagged){
+            //flag
+        fill(0, 0, 0);
+        quad(this.x, this.y + this.w / 2, this.x + this.w/2, this.y, this.x + this.w, this.y + this.w/2, this.x + this.w/2, this.y + this.w);
     }
 
 }
