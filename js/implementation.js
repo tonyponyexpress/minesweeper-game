@@ -91,16 +91,11 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 }
 
 /** Reveals all orthognally adjacent spaces that are also not mines until the edge of the board is hit or a space that is adjacent to a mine */
-function revealSpaces(mines, rows, cols, muli_array){
-	for (let i = 0; i < rows; i++){
-		for (let j = 0; j < cols; j++){
-			let spot = 0;
-			if (multi_array[i][j].mine == false){
-				spot+=1;
+function revealSpace(y, x, rows, cols, multi_array){
+	for (let a = y-1; a <= y+1; a++){
+		for (let b = x-1; b <= x+1; b++){
+						if
+
+				}
 			}
-
-		}
-	}
-
-
 }

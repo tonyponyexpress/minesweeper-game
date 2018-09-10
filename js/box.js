@@ -77,6 +77,7 @@ Box.prototype.show = function() {
             fill(224, 224, 224);
             ellipseMode(CORNER);
             ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+
         }
     }
 

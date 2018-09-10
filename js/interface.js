@@ -45,6 +45,8 @@ function setup() {
     /** Populates the count of the grid */
     generate_playing_field(mines, rows, cols, grid);
 
+    /** Reveals spaces until a count or edge of the board is hit */
+    revealSpace(mines, rows, cols, grid);
 }
 
 
@@ -77,4 +79,6 @@ function mouseClicked(){
     y = floor(mouseY/width);
     grid[x][y].clicked=true;
     //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
+    
+
 }
