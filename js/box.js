@@ -12,6 +12,7 @@ function Box(x,y,width)
     this.clicked = false;
     this.count = 0;
     this.flagged = false;
+    this.doubleClicked = false;
 }
 Box.prototype.show = function() {
     fill(250, 250, 250  );
@@ -79,9 +80,11 @@ Box.prototype.show = function() {
         }
     }
     else if (this.flagged){
-            //flag
+        //flag
         fill(0, 0, 0);
         quad(this.x, this.y + this.w / 2, this.x + this.w/2, this.y, this.x + this.w, this.y + this.w/2, this.x + this.w/2, this.y + this.w);
     }
+
+
 
 }
