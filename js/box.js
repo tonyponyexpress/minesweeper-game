@@ -26,52 +26,148 @@ Box.prototype.show = function() {
             lose();
         }
         else if(this.count==1){
-            // yellow
+            // yellow 1
             fill(255, 235, 59);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex( this.x + this.w / 2 + 2, this.y + 3); //top right
+            vertex( this.x + this.w / 2 + 2, this.y + this.w * 3 / 4); //right trunk meets base
+            vertex( this.x + this.w / 2 + 8, this.y + this.w * 3 / 4); //right base top
+            vertex( this.x + this.w / 2 + 8, this.y + this.w * 3 / 4 + 3); //right base bottom
+            vertex( this.x + this.w / 2 - 8, this.y + this.w * 3 / 4 + 3); //left base bottom
+            vertex( this.x + this.w / 2 - 8, this.y + this.w * 3 / 4); //left base top
+            vertex( this.x + this.w / 2 - 2, this.y + this.w * 3 / 4); //left trunk meets base
+            vertex( this.x + this.w / 2 - 2, this.y + this.w / 4); // leaf meets trunk bottom
+            vertex( this.x + this.w / 2 - 8, this.y + this.w / 4); //leaf point
+            endShape(CLOSE);
         }
         else if(this.count==2){
             // light green
             fill(190, 220, 57);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 + 9, this.y + this.w * 3 / 4 + 3); //base right bottom
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3 / 4 + 3); //base left bottom
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3 / 4 - 2); //base left top
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2); //middle right inside
+            vertex(this.x + this.w / 2, this.y + 7); //top point inside
+            vertex(this.x + this.w / 2 - 8, this.y + 7); //top left point inside
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //top left point outside
+            vertex(this.x + this.w / 2 + 2, this.y + 3); //top point top
+            vertex(this.x + this.w / 2 + 9, this.y + this.w / 2 + 1); //right point right
+            vertex(this.x + this.w / 2 - 3, this.y + this.w * 3 / 4); //base left inside
+            vertex(this.x + this.w / 2 + 9, this.y + this.w * 3 / 4); //base right top
+            endShape(CLOSE);
+
         }
         else if(this.count==3){
             // dark green
             fill(76, 175, 80);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //top left outside
+            vertex(this.x + this.w / 2 + 8, this.y + 3); //top right outside
+            vertex(this.x + this.w / 2, this.y + this.w / 2 - 4); //middle left inside
+            vertex(this.x + this.w / 2 + 8, this.y + this.w / 2 - 4); //middle right outside
+            vertex(this.x + this.w / 2 + 8, this.y + this.w * 3 / 4 + 3); //bottom right outside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3/4 + 3); //bottom left outside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3/4 -1); //bottom left inside
+            vertex(this.x + this.w / 2 + 4, this.y + this.w * 3 / 4 - 1); //bottom right inside
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2); //middle right inside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w / 2); //middle left outside
+            vertex(this.x + this.w / 2, this.y + 7); //top right inside
+            vertex(this.x + this.w / 2 - 8, this.y + 7); //top left inside
+            endShape(CLOSE);
         }
         else if(this.count==4){
             // light blue
             fill(0, 188, 212  );
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 + 4, this.y + this.w * 3 / 4 + 3); //base right
+            vertex(this.x + this.w / 2 + 4, this.y + 3); //top outside right
+            vertex(this.x + this.w / 2, this.y + 3); //top outside left
+            vertex(this.x + this.w / 2 - 8, this.y + this.w / 2); //left outside top
+            vertex(this.x + this.w / 2 - 8, this.y + this.w / 2 + 4); //left outside bottom
+            vertex(this.x + this.w / 2 + 8, this.y + this.w / 2 + 4); //right bottom
+            vertex(this.x + this.w / 2 + 8, this.y + this.w / 2); //right top
+            vertex(this.x + this.w / 2 - 4, this.y + this.w / 2); //left inside
+            vertex(this.x + this.w / 2, this.y + 9); //top inside
+            vertex(this.x + this.w / 2, this.y + this.w * 3/4 + 3); //base left
+            endShape(CLOSE);
         }
         else if(this.count==5){
             // blue
             fill(33, 150, 243);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 + 9, this.y + 3); //base right bottom
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //base left bottom
+            vertex(this.x + this.w / 2 - 8, this.y + 8); //base left top
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2 + 1); //middle right inside
+            vertex(this.x + this.w / 2, this.y + this.w * 3 / 4 + 3); //top point inside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3 / 4 + 3); //top left point inside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w * 3 / 4 + 7); //top left point outside
+            vertex(this.x + this.w / 2 + 3, this.y + this.w * 3 / 4 + 7); //top point top
+            vertex(this.x + this.w / 2 + 9, this.y + this.w / 2); //right point right
+            vertex(this.x + this.w / 2 - 3, this.y + 7); //base left inside
+            vertex(this.x + this.w / 2 + 9, this.y + 7); //base right top
+            endShape(CLOSE);
+
+
         }
         else if(this.count==6){
             // dark blue
             fill(63, 81, 181);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 + 8, this.y + 3); //top right outside
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //top left outside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w - 3); //bottom left outside
+            vertex(this.x + this.w / 2 + 8, this.y + this.w - 3); //bottom right outside
+            vertex(this.x + this.w / 2 + 8, this.y + this.w / 2 - 2); //middle right outside
+            vertex(this.x + this.w / 2 - 4, this.y + this.w / 2 - 2); //middle left top
+            vertex(this.x + this.w / 2 - 4, this.y + this.w / 2 + 2); //middle left bottom
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2 + 2); //middle right inside
+            vertex(this.x + this.w / 2 + 4, this.y + this.w - 7); //bottom right inside
+            vertex(this.x + this.w / 2 - 4, this.y + this.w - 7); //bottom left inside
+            vertex(this.x + this.w / 2 - 4, this.y + 7); //top left inside
+            vertex(this.x + this.w / 2 + 8, this.y + 7); //top right inside
+            endShape(CLOSE);
         }
         else if(this.count==7){
             // purple
             fill(103, 58, 183);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //top left outside
+            vertex(this.x + this.w / 2 + 8, this.y + 3); //top right outside
+            vertex(this.x + this.w / 2 + 2, this.y + this.w - 3); //bottom right
+            vertex(this.x + this.w / 2 - 3, this.y + this.w - 3); //bottom left
+            vertex(this.x + this.w / 2 + 2, this.y + 7); //top right inside
+            vertex(this.x + this.w / 2 - 8, this.y + 7); //top left inside
+            endShape(CLOSE);
         }
         else if(this.count==8){
             // pink
             fill(170, 44, 192);
-            ellipseMode(CORNER);
-            ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+            beginShape();
+            vertex(this.x + this.w / 2 + 8, this.y + 3); //top right outside
+            vertex(this.x + this.w / 2 - 8, this.y + 3); //top left outside
+            vertex(this.x + this.w / 2 - 8, this.y + this.w - 3); //bottom left outside
+            vertex(this.x + this.w / 2 + 8, this.y + this.w - 3); //bottom right outside
+            endShape(CLOSE);
+
+            fill(250, 250, 250);
+
+            //top hole
+            beginShape();
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2 - 2); //middle right outside
+            vertex(this.x + this.w / 2 - 4, this.y + this.w / 2 - 2); //middle left top
+            vertex(this.x + this.w / 2 - 4, this.y + 7); //top left inside
+            vertex(this.x + this.w / 2 + 4, this.y + 7); //top right inside
+            endShape(CLOSE);
+
+            //bottom hole
+            beginShape();
+            vertex(this.x + this.w / 2 - 4, this.y + this.w / 2 + 2); //middle left bottom
+            vertex(this.x + this.w / 2 + 4, this.y + this.w / 2 + 2); //middle right inside
+            vertex(this.x + this.w / 2 + 4, this.y + this.w - 7); //bottom right inside
+            vertex(this.x + this.w / 2 - 4, this.y + this.w - 7); //bottom left inside
+           endShape(CLOSE);
         }
         else{
             // gray

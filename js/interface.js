@@ -88,10 +88,10 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
-        }
-        if(win(rows, cols, grid, mines)){
-            window.alert("You won!");
-            location = location;
+                if(win(rows, cols, grid, mines)){
+                    window.alert("You won!");
+                    location = location;
+                }
         }
 }
 
