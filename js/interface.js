@@ -90,7 +90,7 @@ function keyReleased(){
                 }
         }
         if(win(rows, cols, grid, mines)){
-            window.alert("you won!");
+            window.alert("You won!");
             location = location;
         }
 }
@@ -108,7 +108,7 @@ function mouseClicked(){
     }
     if(win(rows, cols, grid, mines)){
       //console.log("it entered this");
-      window.alert("you won!");
+      window.alert("You won!");
       location = location;
     }
 }

@@ -82,8 +82,10 @@ Box.prototype.show = function() {
     }
     else if (this.flagged){
             //flag
-        fill(0, 0, 0);
-        quad(this.x, this.y + this.w / 2, this.x + this.w/2, this.y, this.x + this.w, this.y + this.w/2, this.x + this.w/2, this.y + this.w);
+        fill(179, 0, 0);
+        triangle(this.x + this.w/2, this.y + 2, this.x + this.w, this.y + this.w/2, this.x + this.w/2, this.y + this.w/2);
+        fill(0,0,0);
+        quad(this.x + this.w/2, this.y + 2, this.x + this.w/2 - 4, this.y + 2, this.x + this.w/2 - 4, this.y + this.w - 2, this.x + this.w/2, this.y + this.w - 2);
     }
 
 }
