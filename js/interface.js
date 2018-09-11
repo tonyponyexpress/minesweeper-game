@@ -14,9 +14,9 @@ function setup() {
     let c=0;
 
     /** Gets the dimensions from the user */
-    rows = document.getElementById("input1").value;
-    cols = document.getElementById("input2").value;
-    mines = document.getElementById("input3").value;
+    rows = floor(document.getElementById("input1").value);
+    cols = floor(document.getElementById("input2").value);
+    mines = floor(document.getElementById("input3").value);
 
     if (rows<2 && cols<2){
         rows=2;
