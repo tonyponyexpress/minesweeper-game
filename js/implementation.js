@@ -91,7 +91,7 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 					/** recursive call to reveal spaces of the new count=0 box */
 					reveal_spaces(a,b,cols,rows,multi_array);
 				}
-				/** reach a number boundarie, if it is not a bomb click the box */
+				/** reach a number boundary, if it is not a bomb click the box */
 				else if (multi_array[a][b].mine==false && multi_array[a][b].count>0){
 					multi_array[a][b].clicked = true;
 				}
