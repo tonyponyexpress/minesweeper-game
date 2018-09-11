@@ -88,7 +88,7 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
-                if(win(rows, cols, grid, mines)){
+                if(win(cols, rows, grid, mines)){
                     window.alert("You won!");
                     location = location;
                 }
@@ -106,7 +106,7 @@ function mouseClicked(){
     if (grid[x][y].count==0 && grid[x][y].mine==false){
         reveal_spaces(x,y,cols,rows,grid);
     }
-    if(win(rows, cols, grid, mines)){
+    if(win(cols, rows, grid, mines)){
       //console.log("it entered this");
       window.alert("You won!");
       location = location;
