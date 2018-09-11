@@ -30,7 +30,6 @@ function setup() {
         mines=rows*cols-1;
     }
     flags = mines;
-
     createCanvas(cols*width +1, rows*width +1);
 
     /** Creates a 2D Array with the cols and rows given*/
@@ -87,6 +86,10 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
+                if(win(rows, cols, grid, mines)){
+                    window.alert("You won!");
+                    location = location;
+                }
         }
 }
 
@@ -97,13 +100,17 @@ function mouseClicked(){
     x = floor(mouseX/width);
     y = floor(mouseY/width);
     grid[x][y].clicked=true;
+
     //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
 
-
-    /** Generates spaces if person clicks on box with count=0 */
-    if (grid[x][y].count==0){
+    /** Generates spaces if person clicks on box with count=0 and not a mine*/
+    if (grid[x][y].count==0 && grid[x][y].mine==false){
         reveal_spaces(x,y,cols,rows,grid);
     }
-
+    if(win(rows, cols, grid, mines)){
+      //console.log("it entered this");
+      window.alert("You won!");
+      location = location;
+    }
 
 }
