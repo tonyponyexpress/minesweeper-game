@@ -126,5 +126,5 @@ function win(cols, rows, multi_array, flags){
 /** Let's user know that the game is lost and resets the game */
 function lose(){
 	window.alert("You lose!");
-	location = location;
+	document.location.reload(true);
 }

@@ -10,7 +10,6 @@ function Box(x,y,width)
     this.w = width;
     this.mine = false;
     this.clicked = false;
-    this.reveal = false;
     this.count = 0;
     this.flagged = false;
     this.doubleClicked = false;
@@ -24,7 +23,6 @@ Box.prototype.show = function() {
             fill(179, 0, 0);
             ellipseMode(CORNER);
             ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
-            lose();
         }
         else if(this.count==1){
             // yellow 1

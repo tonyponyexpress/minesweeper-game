@@ -29,6 +29,7 @@ function setup() {
     if(mines>=rows*cols){
         mines=rows*cols-1;
     }
+
     flags = mines;
     let canvas = createCanvas(cols*width +1, rows*width +1);
     canvas.parent('canvas-holder');
@@ -111,7 +112,10 @@ function mouseClicked(){
     if(win(cols, rows, grid, mines)){
       //console.log("it entered this");
       window.alert("You won!");
-      location = location;
+      window.location.reload(true);
+    }
+    if(grid[x][y].mine == true){
+      lose();
     }
 
 }
