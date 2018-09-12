@@ -125,5 +125,5 @@ function mouseClicked(){
     }
     if(grid[x][y].mine == true){
       lose();
-
+    }
 }
