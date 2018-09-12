@@ -119,5 +119,5 @@ function win(cols, rows, multi_array, flags){
 }
 function lose(){
 	window.alert("You lose!");
-	location = location;
+	document.location.reload(true);
 }
