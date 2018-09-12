@@ -30,7 +30,8 @@ function setup() {
         mines=rows*cols-1;
     }
     flags = mines;
-    createCanvas(cols*width +1, rows*width +1);
+    let canvas = createCanvas(cols*width +1, rows*width +1);
+    canvas.parent('canvas-holder');
 
     /** Creates a 2D Array with the cols and rows given*/
     grid = create2DArray(cols, rows);
