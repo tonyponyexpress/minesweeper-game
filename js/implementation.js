@@ -40,6 +40,7 @@ function mine_population(number, rows, cols, multi_array){
 	}
 }
 
+/** checks to see if a given index of a 2d array is within that array's bounds*/
 function is_within_bounds(a, b, cols, rows){
 	if((a >= 0) && (b >= 0) && (a < cols) && (b < rows)){
 		return true;
@@ -49,12 +50,15 @@ function is_within_bounds(a, b, cols, rows){
 	}
 }
 
-
+/** takes a 2d array with mines already randomly placecs and it checks how mnay mines are adjacent
+to every index of the array, it then assigns a value to describe how many mines are adjacent to each index*/
 function generate_playing_field(number_of_mines, rows, cols, multi_array){
+	/**these two for loops traverse through every index of the array */
 	for (let c = 0; c < cols; c++) {
 	  for (let r = 0; r < rows; r++) {
 			let count=0;
 			if(multi_array[c][r].mine != true){
+				/** these two for loops check all surrounding indices of the current index in the array */
 				for(let a = -1; a <= 1; a++){
 					for(let b = -1; b <= 1; b++){
 						let column_test = c + a;
@@ -67,6 +71,7 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 					}
 				}
 			}
+			/** assigns the number of adjacent mines to the current index*/
 			multi_array[c][r].count = count;
 	  }
 	}
@@ -99,7 +104,8 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 		}
 	}
 }
-
+/** win function takes a 2d array and its size, also the number of mines and checks to see if all indices
+of the array that hold mines are also holding flags, then win will return true */
 function win(cols, rows, multi_array, flags){
 	let count = 0;
 	for(let i = 0; i < cols; i++){
@@ -117,6 +123,7 @@ function win(cols, rows, multi_array, flags){
 		return false;
 	}
 }
+
 function lose(){
 	window.alert("You lose!");
 	document.location.reload(true);
