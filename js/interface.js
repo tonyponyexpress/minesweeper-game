@@ -44,7 +44,6 @@ function setup() {
     /** Populates the grid with the amount of mines given */
     mine_population(mines, rows, cols, grid);
 
-
     /** Populates the count of the grid */
     generate_playing_field(mines, rows, cols, grid);
 
@@ -102,14 +101,16 @@ function mouseClicked(){
     let y;
     x = floor(mouseX/width);
     y = floor(mouseY/width);
-    grid[x][y].clicked=true;
-    /** Generates spaces if person clicks on box with count=0 and not a mine*/
-    if (grid[x][y].count==0 && grid[x][y].mine==false){
-        reveal_spaces(x,y,cols,rows,grid);
-    }
-    if(win(cols, rows, grid, mines)){
-      //console.log("it entered this");
-      window.alert("You won!");
-      location = location;
+    if (grid[x][y].flagged==false){
+        grid[x][y].clicked=true;
+        /** Generates spaces if person clicks on box with count=0 and not a mine*/
+        if (grid[x][y].count==0 && grid[x][y].mine==false){
+            reveal_spaces(x,y,cols,rows,grid);
+        }
+        if(win(cols, rows, grid, mines)){
+          //console.log("it entered this");
+          window.alert("You won!");
+          location = location;
+        }
     }
 }
