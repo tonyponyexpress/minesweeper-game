@@ -19,9 +19,17 @@ function setup() {
     cols = floor(document.getElementById("input2").value);
     mines = floor(document.getElementById("input3").value);
 
-    if (rows<2 && cols<2){
+    if (rows<2){
         rows=2;
-        cols=2;
+    }
+    if (cols < 2){
+        cols = 2;
+    }
+    if (rows > 30){
+        rows = 30;
+    }
+    if (cols > 30){
+        cols = 30;
     }
 
     if(mines<=0){
@@ -30,6 +38,7 @@ function setup() {
     if(mines>=rows*cols){
         mines=rows*cols-1;
     }
+
     flags = mines;
     let canvas = createCanvas(cols*width +1, rows*width +1);
     canvas.parent('canvas-holder');
@@ -47,7 +56,6 @@ function setup() {
 
     /** Populates the count of the grid */
     generate_playing_field(mines, rows, cols, grid);
-
 
 }
 
@@ -110,16 +118,21 @@ function mouseClicked(){
     let y;
     x = floor(mouseX/width);
     y = floor(mouseY/width);
-    if (grid[x][y].flagged==false){
-        grid[x][y].clicked=true;
-        /** Generates spaces if person clicks on box with count=0 and not a mine*/
-        if (grid[x][y].count==0 && grid[x][y].mine==false){
-            reveal_spaces(x,y,cols,rows,grid);
-        }
-        if(win(cols, rows, grid, mines)){
-          //console.log("it entered this");
-          window.alert("You won!");
-          location = location;
-        }
+
+    grid[x][y].clicked=true;
+
+    //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
+
+    /** Generates spaces if person clicks on box with count=0 and not a mine*/
+    if (grid[x][y].count==0 && grid[x][y].mine==false){
+        reveal_spaces(x,y,cols,rows,grid);
+    }
+    if(win(cols, rows, grid, mines)){
+      //console.log("it entered this");
+      window.alert("You won!");
+      window.location.reload(true);
+    }
+    if(grid[x][y].mine == true){
+      lose();
     }
 }

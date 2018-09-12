@@ -49,6 +49,7 @@ function is_within_bounds(a, b, cols, rows){
 	}
 }
 
+/** Adds adjacent numbers to the playing grid */
 
 function generate_playing_field(number_of_mines, rows, cols, multi_array){
 	for (let c = 0; c < cols; c++) {
@@ -74,7 +75,7 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 
 	for(let i = 0; i < rows; i++){
 		for(let j = 0; j < cols; j++){
-			console.log(multi_array[i][j])
+			console.log(multi_array[i][j]);
 		}
 	}
 }
@@ -91,6 +92,7 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 					/** recursive call to reveal spaces of the new count=0 box */
 					reveal_spaces(a,b,cols,rows,multi_array);
 				}
+
 				/** reach a number boundarie, if it is not a bomb or flag click the box */
 				else if (multi_array[a][b].mine==false && multi_array[a][b].count>0 && multi_array[a][b].flagged == false){
 					multi_array[a][b].clicked = true;
@@ -98,7 +100,10 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 			}
 		}
 	}
+
 }
+
+/** Let's user know that the game is finished and resets the game */
 
 function win(cols, rows, multi_array, flags){
 	let count = 0;
@@ -117,6 +122,8 @@ function win(cols, rows, multi_array, flags){
 		return false;
 	}
 }
+
+/** Let's user know that the game is lost and resets the game */
 function lose(){
 	window.alert("You lose!");
 	document.location.reload(true);
