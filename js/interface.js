@@ -14,9 +14,9 @@ function setup() {
     let c=0;
 
     /** Gets the dimensions from the user */
-    rows = document.getElementById("input1").value;
-    cols = document.getElementById("input2").value;
-    mines = document.getElementById("input3").value;
+    rows = floor(document.getElementById("input1").value);
+    cols = floor(document.getElementById("input2").value);
+    mines = floor(document.getElementById("input3").value);
 
     if (rows<2 && cols<2){
         rows=2;
@@ -30,7 +30,8 @@ function setup() {
         mines=rows*cols-1;
     }
     flags = mines;
-    createCanvas(cols*width +1, rows*width +1);
+    let canvas = createCanvas(cols*width +1, rows*width +1);
+    canvas.parent('canvas-holder');
 
     /** Creates a 2D Array with the cols and rows given*/
     grid = create2DArray(cols, rows);
@@ -86,7 +87,7 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
-                if(win(rows, cols, grid, mines)){
+                if(win(cols, rows, grid, mines)){
                     window.alert("You won!");
                     location = location;
                 }
@@ -107,7 +108,7 @@ function mouseClicked(){
     if (grid[x][y].count==0 && grid[x][y].mine==false){
         reveal_spaces(x,y,cols,rows,grid);
     }
-    if(win(rows, cols, grid, mines)){
+    if(win(cols, rows, grid, mines)){
       //console.log("it entered this");
       window.alert("You won!");
       location = location;

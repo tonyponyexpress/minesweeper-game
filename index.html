@@ -8,12 +8,27 @@
   <!-- Meta tag for responsive websites -->
   <!-- <meta name="viewport" content="width-device-width, initial scale=1"> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Oswald|Source+Sans+Pro" rel="stylesheet">
 </head>
 
 <body>
-  <h1> Welcome to Minesweeper!</h1>
+  <h1> MINESWEEPER </h1>
+
+  <h2> Rules </h2>
+
+
+  <h2> Controls </h2>
+    <p> Left click to open a cell </p>
+    <p> To flag a mine, place the mouse over the desired cell and press the space bar </p>
+
+  <h2> Settings </h2>
+    <p>
       Please input the number of rows for the grid:
       <input type="number" id="input1" />
+    </p>
+
     <p>
       Please input the number of columns for the grid:
       <input type="number" id="input2" />
@@ -24,6 +39,12 @@
     </p>
     <button onclick="setup()">Play</button>
    <p> </p>
+
+    <div id="canvas-holder">
+      <!-- Our sketch will go here! -->
+    </div>
+    <p>Extra text</p>
+
 
     <script type="text/javascript" src="js/interface.js"></script>
     <script type="text/javascript" src="js/box.js"></script>

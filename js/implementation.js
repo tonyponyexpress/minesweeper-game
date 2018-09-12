@@ -105,10 +105,10 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 
 /** Let's user know that the game is finished and resets the game */
 
-function win(rows, cols, multi_array, flags){
+function win(cols, rows, multi_array, flags){
 	let count = 0;
-	for(let i = 0; i < rows; i++){
-		for(let j = 0; j < cols; j++){
+	for(let i = 0; i < cols; i++){
+		for(let j = 0; j < rows; j++){
 			if(multi_array[i][j].flagged == true && multi_array[i][j].mine == true){
 				count += 1;
 			}
