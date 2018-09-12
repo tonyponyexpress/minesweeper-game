@@ -81,7 +81,7 @@ function create2DArray(cols,rows){
 
 /** Works the flags when SPACEBAR is released */
 function keyReleased(){
-        if (key === ' '){
+        if (key === 'f'){
                 let x;
                 let y;
                 x = floor(mouseX/width);
@@ -111,8 +111,6 @@ function mouseClicked(){
     y = floor(mouseY/width);
 
     grid[x][y].clicked=true;
-
-    //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
 
     /** Generates spaces if person clicks on box with count=0 and not a mine*/
     if (grid[x][y].count==0 && grid[x][y].mine==false){
