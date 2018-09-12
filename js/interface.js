@@ -6,6 +6,7 @@ let rows=0;
 let mines=0;
 let width = 30;
 let flags = 0;
+let firstClick = false;
 
 /** ------------ P5 interface ------------ */
 /** Creates a canvas with a 2D array according to the input*/
@@ -81,6 +82,7 @@ function create2DArray(cols,rows){
 
 /** Works the flags when SPACEBAR is released */
 function keyReleased(){
+
         if (key === ' '){
                 let x;
                 let y;
@@ -96,14 +98,21 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
+                document.getElementById("flagsLeft").innerHTML = ("Remaining flags:" + flags);
+
                 if(win(cols, rows, grid, mines)){
                     window.alert("You won!");
                     location = location;
                 }
         }
+
 }
 
-/** Test function to change the box if it is clicked */
+
+/**
+ * Changes the box implementation when if its clicked
+ * @constructor
+ */
 function mouseClicked(){
     let x;
     let y;
@@ -125,5 +134,5 @@ function mouseClicked(){
     }
     if(grid[x][y].mine == true){
       lose();
-
+    }
 }
