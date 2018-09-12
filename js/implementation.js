@@ -103,6 +103,8 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 
 }
 
+/** Let's user know that the game is finished and resets the game */
+
 function win(rows, cols, multi_array, flags){
 	let count = 0;
 	for(let i = 0; i < rows; i++){
@@ -120,6 +122,8 @@ function win(rows, cols, multi_array, flags){
 		return false;
 	}
 }
+
+/** Let's user know that the game is lost and resets the game */
 function lose(){
 	window.alert("You lose!");
 	location = location;
