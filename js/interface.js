@@ -101,6 +101,7 @@ function mouseClicked(){
     let y;
     x = floor(mouseX/width);
     y = floor(mouseY/width);
+
     grid[x][y].clicked=true;
 
     //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
@@ -116,6 +117,5 @@ function mouseClicked(){
     }
     if(grid[x][y].mine == true){
       lose();
-    }
 
 }
