@@ -18,9 +18,17 @@ function setup() {
     cols = floor(document.getElementById("input2").value);
     mines = floor(document.getElementById("input3").value);
 
-    if (rows<2 && cols<2){
+    if (rows<2){
         rows=2;
-        cols=2;
+    }
+    if (cols < 2){
+        cols = 2;
+    }
+    if (rows > 30){
+        rows = 30;
+    }
+    if (cols > 30){
+        cols = 30;
     }
 
     if(mines<=0){
