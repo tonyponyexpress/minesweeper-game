@@ -1,0 +1,56 @@
+body {
+    /* Option #1: background image */
+    background-image: url('background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    /* Option #2: dark grey background */
+    background-color: #484d5c;
+    text-align: center;
+}
+
+h1, h2{
+ font-family: 'Oswald', sans-serif;
+ font-size: 60px;
+ text-transform: uppercase;
+ color: #ffce00;
+}
+
+h1{
+ font-size: 60px;
+}
+
+h2{
+ font-size: 30px;
+}
+
+p {
+    color: #c0ccd4;
+    font-size: 18px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+button{
+    font-size: 20px;
+    background-color: #ffce00;
+    border-radius: 8px;
+}
+
+button:hover {
+    color: white;
+}
+
+input{
+    border-radius: 8px;
+}
+
+#canvas-holder {
+  margin: 0;
+  display: flex;
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
