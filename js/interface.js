@@ -96,6 +96,8 @@ function keyReleased(){
                                 flags = flags - 1;
                         }
                 }
+                document.getElementById("flagsLeft").innerHTML = ("Remaining flags: " + flags);
+
                 if(win(cols, rows, grid, mines)){
                     window.alert("You won!");
                     location = location;
@@ -103,25 +105,28 @@ function keyReleased(){
         }
 }
 
-/** Test function to change the box if it is clicked */
+
+/**
+ * Changes the box implementation when if its clicked
+ * @constructor
+ */
 function mouseClicked(){
     let x;
     let y;
     x = floor(mouseX/width);
     y = floor(mouseY/width);
-
-    grid[x][y].clicked=true;
-
-    /** Generates spaces if person clicks on box with count=0 and not a mine*/
-    if (grid[x][y].count==0 && grid[x][y].mine==false){
-        reveal_spaces(x,y,cols,rows,grid);
-    }
-    if(win(cols, rows, grid, mines)){
-      //console.log("it entered this");
-      window.alert("You won!");
-      window.location.reload(true);
-    }
-    if(grid[x][y].mine == true){
-      lose();
+    if (grid[x][y].flagged==false){
+      grid[x][y].clicked=true;
+      /** Generates spaces if person clicks on box with count=0 and not a mine*/
+      if (grid[x][y].count==0 && grid[x][y].mine==false){
+          reveal_spaces(x,y,cols,rows,grid);
+      }
+      if(win(cols, rows, grid, mines)){
+          window.alert("You won!");
+          window.location.reload(true);
+      }
+      if(grid[x][y].mine == true){
+        lose();
+      }
     }
 }

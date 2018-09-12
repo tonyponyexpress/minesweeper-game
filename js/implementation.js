@@ -40,6 +40,7 @@ function mine_population(number, rows, cols, multi_array){
 	}
 }
 
+/** checks to see if a given index of a 2d array is within that array's bounds*/
 function is_within_bounds(a, b, cols, rows){
 	if((a >= 0) && (b >= 0) && (a < cols) && (b < rows)){
 		return true;
@@ -49,13 +50,16 @@ function is_within_bounds(a, b, cols, rows){
 	}
 }
 
-/** Adds adjacent numbers to the playing grid */
 
+
+/** Adds adjacent numbers to the playing grid */
 function generate_playing_field(number_of_mines, rows, cols, multi_array){
+	/**these two for loops traverse through every index of the array */
 	for (let c = 0; c < cols; c++) {
 	  for (let r = 0; r < rows; r++) {
 			let count=0;
 			if(multi_array[c][r].mine != true){
+				/** these two for loops check all surrounding indices of the current index in the array */
 				for(let a = -1; a <= 1; a++){
 					for(let b = -1; b <= 1; b++){
 						let column_test = c + a;
@@ -68,6 +72,7 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 					}
 				}
 			}
+			/** assigns the number of adjacent mines to the current index*/
 			multi_array[c][r].count = count;
 	  }
 	}
@@ -104,7 +109,6 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 }
 
 /** Let's user know that the game is finished and resets the game */
-
 function win(cols, rows, multi_array, flags){
 	let count = 0;
 	for(let i = 0; i < cols; i++){

@@ -19,31 +19,33 @@
   <h2> Rules </h2>
     <p> Enter numbers only for the size of the grid and mines. </p>
     <p> You cannot make a playing grid larger than 30x30. </p>
-
+    
   <h2> Controls </h2>
     <p> Left click to open a cell. </p>
-    <p> To flag a mine, place the mouse over the desired cell and press the space bar. </p>
+    <p> To flag a mine, place the mouse over the desired cell and press the 'f' key. </p>
 
   <h2> Settings </h2>
     <p>
       Please input the number of rows for the grid:
-      <input type="number" id="input1" />
+      <input type="number" id="input1" min = "2" max = "30" placeholder = "must be a number 2-30" style = "width: 165px;"/>
     </p>
 
     <p>
       Please input the number of columns for the grid:
-      <input type="number" id="input2" />
+      <input type="number" id="input2" min = 2 max = 30 placeholder = "must be a number 2-30" style = "width: 165px;" />
     </p>
     <p>
       Please input the number of mines you would like:
-      <input type="number" id="input3" />
+      <input type="number" id="input3" placeholder = "must be at least 1" style = "width: 165px;" />
     </p>
     <button onclick="setup()">Play</button>
    <p> </p>
 
     <div id="canvas-holder">
-      <!-- Our sketch will go here! -->
+      <!-- Our canvas goes here -->
     </div>
+
+    <p> <span id="flagsLeft"></span> </p>
 
 
     <script type="text/javascript" src="js/interface.js"></script>
