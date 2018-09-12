@@ -50,8 +50,9 @@ function is_within_bounds(a, b, cols, rows){
 	}
 }
 
-/** takes a 2d array with mines already randomly placecs and it checks how mnay mines are adjacent
-to every index of the array, it then assigns a value to describe how many mines are adjacent to each index*/
+
+
+/** Adds adjacent numbers to the playing grid */
 function generate_playing_field(number_of_mines, rows, cols, multi_array){
 	/**these two for loops traverse through every index of the array */
 	for (let c = 0; c < cols; c++) {
@@ -79,7 +80,7 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 
 	for(let i = 0; i < rows; i++){
 		for(let j = 0; j < cols; j++){
-			console.log(multi_array[i][j])
+			console.log(multi_array[i][j]);
 		}
 	}
 }
@@ -96,6 +97,7 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 					/** recursive call to reveal spaces of the new count=0 box */
 					reveal_spaces(a,b,cols,rows,multi_array);
 				}
+
 				/** reach a number boundarie, if it is not a bomb or flag click the box */
 				else if (multi_array[a][b].mine==false && multi_array[a][b].count>0 && multi_array[a][b].flagged == false){
 					multi_array[a][b].clicked = true;
@@ -103,9 +105,10 @@ function reveal_spaces(y, x, cols, rows, multi_array){
 			}
 		}
 	}
+
 }
-/** win function takes a 2d array and its size, also the number of mines and checks to see if all indices
-of the array that hold mines are also holding flags, then win will return true */
+
+/** Let's user know that the game is finished and resets the game */
 function win(cols, rows, multi_array, flags){
 	let count = 0;
 	for(let i = 0; i < cols; i++){
@@ -124,6 +127,7 @@ function win(cols, rows, multi_array, flags){
 	}
 }
 
+/** Let's user know that the game is lost and resets the game */
 function lose(){
 	window.alert("You lose!");
 	document.location.reload(true);

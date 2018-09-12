@@ -23,7 +23,6 @@ Box.prototype.show = function() {
             fill(179, 0, 0);
             ellipseMode(CORNER);
             ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
-            lose();
         }
         else if(this.count==1){
             // yellow 1
@@ -174,6 +173,7 @@ Box.prototype.show = function() {
             fill(224, 224, 224);
             ellipseMode(CORNER);
             ellipse(this.x+5, this.y+5, this.w -10 , this.w -10);
+
         }
     }
     else if (this.flagged){

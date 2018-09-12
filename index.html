@@ -26,20 +26,19 @@
   <h2> Settings </h2>
     <p>
       Please input the number of rows for the grid:
-      <input type="number" id="input1" />
+      <input type="number" id="input1" min = "2" max = "30" placeholder = "must be a number 2-30" style = "width: 165px;"/>
     </p>
 
     <p>
       Please input the number of columns for the grid:
-      <input type="number" id="input2" />
+      <input type="number" id="input2" min = 2 max = 30 placeholder = "must be a number 2-30" style = "width: 165px;" />
     </p>
     <p>
       Please input the number of mines you would like:
-      <input type="number" id="input3" />
+      <input type="number" id="input3" placeholder = "must be at least 1" style = "width: 165px;" />
     </p>
     <button onclick="setup()">Play</button>
-    <p>
-    </p>
+   <p> </p>
 
     <div id="canvas-holder">
       <!-- Our sketch will go here! -->
