@@ -6,7 +6,6 @@ let rows=0;
 let mines=0;
 let width = 30;
 let flags = 0;
-let firstClick = false;
 
 /** ------------ P5 interface ------------ */
 /** Creates a canvas with a 2D array according to the input*/
@@ -82,7 +81,6 @@ function create2DArray(cols,rows){
 
 /** Works the flags when SPACEBAR is released */
 function keyReleased(){
-
         if (key === ' '){
                 let x;
                 let y;
@@ -105,7 +103,6 @@ function keyReleased(){
                     location = location;
                 }
         }
-
 }
 
 
@@ -118,21 +115,20 @@ function mouseClicked(){
     let y;
     x = floor(mouseX/width);
     y = floor(mouseY/width);
+    if (grid[x][y].flagged==false){
+      grid[x][y].clicked=true;
+      //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
 
-    grid[x][y].clicked=true;
-
-    //* Need to check what is the status of the box. Right now just puts a circle on each box that is clicked */
-
-    /** Generates spaces if person clicks on box with count=0 and not a mine*/
-    if (grid[x][y].count==0 && grid[x][y].mine==false){
-        reveal_spaces(x,y,cols,rows,grid);
-    }
-    if(win(cols, rows, grid, mines)){
-      //console.log("it entered this");
-      window.alert("You won!");
-      window.location.reload(true);
-    }
-    if(grid[x][y].mine == true){
-      lose();
+      /** Generates spaces if person clicks on box with count=0 and not a mine*/
+      if (grid[x][y].count==0 && grid[x][y].mine==false){
+          reveal_spaces(x,y,cols,rows,grid);
+      }
+      if(win(cols, rows, grid, mines)){
+          window.alert("You won!");
+          window.location.reload(true);
+      }
+      if(grid[x][y].mine == true){
+        lose();
+      }
     }
 }
