@@ -1,8 +1,28 @@
 /**
+ *  @fileOverview Box class
  *
- * @constructor
-*/
+ *  @author       Ian Farris
+ *  @author       Thor Lyche
+ *  @author       Robert Nickel
+ *  @author       Tony Nguyen
+ *  @author       Emilia Paz
+ */
 
+
+ /**
+  * A class to represent boxes in the grid
+  * @class
+  *
+  * @constructor
+  *
+  * @property x the box's x coordinate
+  * @property y the box's y coordinate
+  * @property w the box's width
+  * @property mine  contains or not a mine
+  * @property clicked   has been clicked or not
+  * @property count counter of the times the box has been clicked
+  * @property flagged   contains or not a flag
+  */
 function Box(x,y,width)
 {
     this.x = x;
@@ -12,8 +32,8 @@ function Box(x,y,width)
     this.clicked = false;
     this.count = 0;
     this.flagged = false;
-    this.doubleClicked = false;
 }
+
 Box.prototype.show = function() {
     fill(250, 250, 250  );
     rect(this.x, this.y, this.w, this.w);

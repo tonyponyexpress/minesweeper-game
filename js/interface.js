@@ -1,3 +1,13 @@
+/**
+ *  @fileOverview Interface of Minesweeper
+ *
+ *  @author       Ian Farris
+ *  @author       Thor Lyche
+ *  @author       Robert Nickel
+ *  @author       Tony Nguyen
+ *  @author       Emilia Paz
+ */
+
 /** ------------Global variables ------------ */
 
 let grid;
@@ -39,6 +49,7 @@ function setup() {
     }
 
     flags = mines;
+
     let canvas = createCanvas(cols*width +1, rows*width +1);
     canvas.parent('canvas-holder');
 
@@ -68,7 +79,7 @@ function draw() {
   }
 }
 
-/** ------------ HELPER FUNCTIONS ------------ */
+/** ------------ Helper Functions ------------ */
 
 /** Creates a 2D Array */
 function create2DArray(cols,rows){
@@ -79,7 +90,7 @@ function create2DArray(cols,rows){
   return grid;
 }
 
-/** Works the flags when SPACEBAR is released */
+/** Works the flags when f is released */
 function keyReleased(){
         if (key === 'f'){
                 let x;
@@ -108,7 +119,6 @@ function keyReleased(){
 
 /**
  * Changes the box implementation when if its clicked
- * @constructor
  */
 function mouseClicked(){
     let x;

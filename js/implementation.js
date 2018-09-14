@@ -1,3 +1,13 @@
+/**
+ *  @fileOverview Implementation of Minesweeper
+ *
+ *  @author       Ian Farris
+ *  @author       Thor Lyche
+ *  @author       Robert Nickel
+ *  @author       Tony Nguyen
+ *  @author       Emilia Paz
+ */
+
 
 /**this takes an x value, an array, and the current number of elements in that array.
 It checks (for the number of elements currently in the array) whether or not the value
@@ -85,7 +95,14 @@ function generate_playing_field(number_of_mines, rows, cols, multi_array){
 	}
 }
 
-/** Reveals boxes around grid [y,x] that are count=0, and recursive call to reveal the spaces spaces */
+/**
+ * Reveals boxes around grid [y,x] that are spaces, and for each space has a recursive call to reveal its spaces
+ * @param   {number} y column coordinate of the space
+ * @param   {number} x row coordinate of the space
+ * @param   {number} cols number of columns on the grid
+ * @param   {number} rows number of rows on the grid
+ * @param   {Array} multi_array grid
+ */
 function reveal_spaces(y, x, cols, rows, multi_array){
 	/** Nested for loop to access the boxes around grid[y][x] */
 	for(let a = y-1; a <= y+1; a++){
