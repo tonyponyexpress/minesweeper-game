@@ -14,20 +14,19 @@ let grid;
 let cols=0;
 let rows=0;
 let mines=0;
-let width = 30;
-let flags = 0;
+let width=30;
+let flags=0;
 
 /** ------------ P5 interface ------------ */
 /** Creates a canvas with a 2D array according to the input*/
 function setup() {
-    let r=0;
-    let c=0;
-
     /** Gets the dimensions from the user */
     rows = floor(document.getElementById("input1").value);
     cols = floor(document.getElementById("input2").value);
     mines = floor(document.getElementById("input3").value);
+    flags = mines;
 
+    /** Boundaries for the grid */
     if (rows<2){
         rows=2;
     }
@@ -40,7 +39,6 @@ function setup() {
     if (cols > 30){
         cols = 30;
     }
-
     if(mines<=0){
         mines=1;
     }
@@ -48,8 +46,7 @@ function setup() {
         mines=rows*cols-1;
     }
 
-    flags = mines;
-
+    /** Creates a canvas that holds the amount of cols and rows given according to the set width*/
     let canvas = createCanvas(cols*width +1, rows*width +1);
     canvas.parent('canvas-holder');
 
@@ -64,11 +61,10 @@ function setup() {
     /** Populates the grid with the amount of mines given */
     mine_population(mines, rows, cols, grid);
 
-    /** Populates the count of the grid */
+    /** Populates the count of each box in the grid */
     generate_playing_field(mines, rows, cols, grid);
 
 }
-
 
 /** Draws the canvas on the site */
 function draw() {
@@ -81,7 +77,12 @@ function draw() {
 
 /** ------------ Helper Functions ------------ */
 
-/** Creates a 2D Array */
+/**
+ * Creates a 2D Array according to the cols and rows given
+ * @param   {number} cols number of columns for the 2D array
+ * @param   {number} rows number of rows for the 2D array
+ * @return  {array} 2D array with the the numbers of cols and rows
+ */
 function create2DArray(cols,rows){
   let grid = new Array(cols);
   for (let c=0; c<cols; c++){
@@ -89,6 +90,7 @@ function create2DArray(cols,rows){
   }
   return grid;
 }
+
 
 /** Works the flags when f is released */
 function keyReleased(){
@@ -118,23 +120,25 @@ function keyReleased(){
 
 
 /**
- * Changes the box implementation when if its clicked
+ * Changes the box implementation when it is clicked
  */
 function mouseClicked(){
-    let x;
-    let y;
-    x = floor(mouseX/width);
-    y = floor(mouseY/width);
+    /** Gets coordinate of the click input */
+    let x = floor(mouseX/width);
+    let y = floor(mouseY/width);
+    /** If the box does not have a flag, change the boxs implementation */
     if (grid[x][y].flagged==false){
       grid[x][y].clicked=true;
-      /** Generates spaces if person clicks on box with count=0 and not a mine*/
+      /** Generates spaces if the box is an space and not a mine*/
       if (grid[x][y].count==0 && grid[x][y].mine==false){
           reveal_spaces(x,y,cols,rows,grid);
       }
+      /** Calls win function */
       if(win(cols, rows, grid, mines)){
           window.alert("You won!");
           window.location.reload(true);
       }
+      /** Calls lose function */
       if(grid[x][y].mine == true){
         lose();
       }
