@@ -123,6 +123,7 @@ function keyReleased(){
 
 /**
  * Changes the box implementation when it is clicked
+ *
  */
 function mouseClicked(){
     /** Gets coordinate of the click input */
