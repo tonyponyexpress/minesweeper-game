@@ -1,0 +1,8 @@
+Works Cited:
+
+- Author(s):  Created by Lauren McCarthy and is developed by a community of collaborators, with support from the Processing Foundation and NYU ITP
+- Date: September, 2018.
+- Title of program/source code: p5.js
+- Type: JavaScript library
+- Web address: https://p5js.org/
+- Comment: Use of p5 library and its functions. All the code was written from scratch
