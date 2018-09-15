@@ -41,9 +41,11 @@ function setup() {
     }
     if(mines<=0){
         mines=1;
+        flags=1;
     }
     if(mines>=rows*cols){
         mines=rows*cols-1;
+        flags=mines;
     }
 
     /** Creates a canvas that holds the amount of cols and rows given according to the set width*/
