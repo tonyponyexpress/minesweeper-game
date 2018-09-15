@@ -23,6 +23,10 @@
   * @property {number} count counter of the times the box has been clicked
   * @property {boolean} flagged   contains or not a flag
   */
+/**@pre: need valid grid inputs
+   @Post: a box object which is available to be shown has been generated
+   @return: undefined
+*/
 function Box(x,y,width)
 {
     this.x = x;
@@ -33,7 +37,9 @@ function Box(x,y,width)
     this.count = 0;
     this.flagged = false;
 }
-
+/** @pre: grid has been created and filled with values
+    @post: reveals the value of the grid that was clicked on
+    @returntype: undefined */
 Box.prototype.show = function() {
     fill(250, 250, 250  );
     rect(this.x, this.y, this.w, this.w);
