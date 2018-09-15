@@ -6,7 +6,8 @@
   <title> Minesweeper v.1 </title>
   <meta charset="utf-8">
   <!-- Meta tag for responsive websites -->
-  <!-- <meta name="viewport" content="width-device-width, initial scale=1"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <!-- Fonts -->
@@ -16,13 +17,24 @@
 <body>
   <h1> MINESWEEPER </h1>
 
+  <h2> Introduction </h2>
+    <p> In the grid, some cells contain mines and others don't. </p>
+    <p> If you click on a cell containing a mine, you lose. </p>
+    <p> If you click on a cell that is not a mine, it will reveal the number of mines in neighbor cells </p>
+    <p> A cell "neighbours" are the cells adjacent above, below, left, right, and all 4 diagonals. </p>
+    <p> If you place flags on top of all the cells containing a mine, you win </p>
+
   <h2> Rules </h2>
-    <p> Enter numbers only for the size of the grid and mines. </p>
-    <p> You cannot make a playing grid larger than 30x30. </p>
+    <p> If you open a square with 0 neighboring bombs, all its neighbors will automatically open. </p>
+    <p> Enter numbers only for the dimensions of the grid and mines. </p>
+    <p> You cannot make a playing grid smaller than 2x2 and larger than 30x30. </p>
+    <p> If you provide wrong dimensions, the program will create an appropiate grid </p>
+    <p> If you provide more mines than cells, the program will create one mine less than the total amount of cells </p>
 
   <h2> Controls </h2>
     <p> Left click to open a cell. </p>
     <p> To flag a mine, place the mouse over the desired cell and press the 'f' key. </p>
+    <p> To release a mine, place the mouse over the desired cell and press the 'f' key. </p>
 
   <h2> Settings </h2>
     <p>
@@ -47,7 +59,7 @@
 
     <p> <span id="flagsLeft"></span> </p>
 
-
+    <!-- JavaScript -->
     <script type="text/javascript" src="js/interface.js"></script>
     <script type="text/javascript" src="js/box.js"></script>
     <script type="text/javascript" src="js/implementation.js"></script>
