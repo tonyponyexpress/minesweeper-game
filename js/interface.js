@@ -18,7 +18,8 @@ let width=30;
 let flags=0;
 
 /** ------------ P5 interface ------------ */
-/** Creates a canvas with a 2D array according to the input*/
+/** Creates a canvas with a 2D array according to the input
+ */
 function setup() {
     /** Gets the dimensions from the user */
     rows = floor(document.getElementById("input1").value);

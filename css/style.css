@@ -18,7 +18,7 @@ h1, h2{
 }
 
 h1{
- font-size: 60px;
+ font-size: 70px;
 }
 
 h2{
@@ -29,6 +29,7 @@ p {
     color: #c0ccd4;
     font-size: 18px;
     font-family: 'Source Sans Pro', sans-serif;
+    line-height: 0.7;
 }
 
 button{
