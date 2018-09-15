@@ -18,7 +18,10 @@ let width=30;
 let flags=0;
 
 /** ------------ P5 interface ------------ */
-/** Creates a canvas with a 2D array according to the input*/
+/** Creates a canvas with a 2D array according to the input
+    @pre need a valid number of rows and columns to build the board
+    @post the board has been created and filled with mines, the user
+          can now play the game!*/
 function setup() {
     /** Gets the dimensions from the user */
     rows = floor(document.getElementById("input1").value);
@@ -68,7 +71,11 @@ function setup() {
 
 }
 
-/** Draws the canvas on the site */
+/** Draws the canvas on the site
+    @pre there has been a 2d array built, but it has nothing inside it
+    @post the array is now filled with mines or number of adjacent mines
+    @return none
+    */
 function draw() {
   for (let c = 0; c < cols; c++) {
     for (let r = 0; r < rows; r++) {
@@ -94,7 +101,12 @@ function create2DArray(cols,rows){
 }
 
 
-/** Works the flags when f is released */
+/** Works the flags when f is released
+    @pre An array has been created and filled with box objects, some of which contain mines
+    @post Once the f key has been released a flag will be set wherever the cursor hovered when f is pressed
+          (decrementing flagCount by 1) if this is repeated, the flag will be removed and flagCount will increase by 1
+    @return none
+*/
 function keyReleased(){
         if (key === 'f'){
                 let x;
@@ -123,6 +135,11 @@ function keyReleased(){
 
 /**
  * Changes the box implementation when it is clicked
+  @pre The board has been created and filled with mines, the user is playing
+  @post if the user clicks a mine, they lose. If they click anything other than a mine,
+      the number of mines adjacent to that spot will appear. If they have flagged every
+      mine, they win
+  @return none
  */
 function mouseClicked(){
     /** Gets coordinate of the click input */
